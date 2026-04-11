@@ -33,11 +33,8 @@
         <div class="tip-card" @click="quickSend('用英文解释 machine learning')">🤖 Explain machine learning</div>
       </div>
 
-      <div
-        v-for="(msg, index) in messages"
-        :key="index"
-        :class="['msg-item', msg.role]"
-      >
+      <div v-for="msg in messages" :key="msg.content" :class="['msg-item', msg.role]">
+       
         <div class="avatar">
           <span v-if="msg.role === 'user'">ME</span>
           <span v-else>AI</span>
