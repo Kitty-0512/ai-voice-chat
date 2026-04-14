@@ -1,6 +1,11 @@
 // DeepSeek API Key — 去 platform.deepseek.com 获取
-const DEEPSEEK_API_KEY = 'sk-f66dcf4f675a43689592e2a567129a63';
-const DEEPSEEK_BASE_URL = 'https://api.deepseek.com/v1';
+// 从环境变量读取，本地开发和线上都安全
+const DEEPSEEK_API_KEY = import.meta.env.VITE_DEEPSEEK_API_KEY || '';
+
+// 本地走 Vite 代理，线上走 Vercel 反向代理
+const DEEPSEEK_BASE_URL = import.meta.env.DEV
+  ? '/deepseek-api/v1'
+  : '/api/deepseek/v1';
 
 /**
  * AI 对话流式接口 — DeepSeek
